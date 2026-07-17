@@ -8,7 +8,7 @@ const HERO_IMAGES = [
   'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=1800&q=80',
   'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=1800&q=80',
   'https://images.unsplash.com/photo-1754577060078-21315dd188c8?auto=format&fit=crop&w=1800&q=80',
-  'https://images.unsplash.com/photo-1630173250799-2813d34ed14b?auto=format&fit=crop&w=1800&q=80',
+  'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1800&q=80',
 ] as const
 
 const ROTATE_MS = 10_000
