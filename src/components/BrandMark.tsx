@@ -6,8 +6,8 @@ interface BrandMarkProps {
 }
 
 const WORDMARK = {
-  dark: '/logo-wordmark.png',
-  light: '/logo-wordmark-light.png',
+  dark: `${import.meta.env.BASE_URL}logo-wordmark.png`,
+  light: `${import.meta.env.BASE_URL}logo-wordmark-light.png`,
 } as const
 
 export function BrandMark({
