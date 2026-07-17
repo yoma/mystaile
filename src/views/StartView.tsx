@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { PhotoTipsModal } from './PhotoTipsModal'
 
 interface StartViewProps {
+  onTakePhoto: () => void
   onPickPhoto: () => void
 }
 
@@ -14,7 +15,7 @@ const HERO_IMAGES = [
 
 const ROTATE_MS = 10_000
 
-export function StartView({ onPickPhoto }: StartViewProps) {
+export function StartView({ onTakePhoto, onPickPhoto }: StartViewProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [tipsOpen, setTipsOpen] = useState(false)
 
@@ -83,7 +84,14 @@ export function StartView({ onPickPhoto }: StartViewProps) {
 
       {tipsOpen && (
         <PhotoTipsModal
-          onPickPhoto={onPickPhoto}
+          onTakePhoto={() => {
+            setTipsOpen(false)
+            onTakePhoto()
+          }}
+          onPickPhoto={() => {
+            setTipsOpen(false)
+            onPickPhoto()
+          }}
           onClose={() => setTipsOpen(false)}
         />
       )}

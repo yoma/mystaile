@@ -1,11 +1,17 @@
 import { useEffect } from 'react'
 
 interface PhotoTipsModalProps {
+  onTakePhoto: () => void
   onPickPhoto: () => void
   onClose: () => void
 }
 
 const TIPS = [
+  {
+    title: 'Telefoon neer of timer',
+    detail:
+      'Zet je telefoon neer, gebruik de timer (3–10s), een spiegel, of vraag iemand. Met één arm omhoog knip je jezelf vaak half uit beeld, en dat verzwakt de try-on.',
+  },
   {
     title: 'Full-body in beeld',
     detail: 'Van kruin tot voeten, met wat ruimte rondom.',
@@ -19,16 +25,16 @@ const TIPS = [
     detail: 'Gelijkmatig licht, zodat gezicht en kleding goed zichtbaar zijn.',
   },
   {
-    title: 'Scherp en stil',
-    detail: 'Houd de camera stil. Geen wazige shots.',
-  },
-  {
     title: 'Rustige achtergrond',
     detail: 'Niets voor je lichaam, achtergrond niet te druk.',
   },
 ] as const
 
-export function PhotoTipsModal({ onPickPhoto, onClose }: PhotoTipsModalProps) {
+export function PhotoTipsModal({
+  onTakePhoto,
+  onPickPhoto,
+  onClose,
+}: PhotoTipsModalProps) {
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose()
@@ -60,8 +66,8 @@ export function PhotoTipsModal({ onPickPhoto, onClose }: PhotoTipsModalProps) {
           Zo werkt je foto best
         </h2>
         <p className="tips-lede">
-          Eén goede full-body shot is genoeg. Denk camera, licht en kadrering.
-          Geen stress over hoe je eruitziet.
+          Eén goede full-body shot is genoeg. Zet de telefoon neer of gebruik een
+          timer. Geen stress over hoe je eruitziet.
         </p>
 
         <ul className="tips-list">
@@ -74,11 +80,11 @@ export function PhotoTipsModal({ onPickPhoto, onClose }: PhotoTipsModalProps) {
         </ul>
 
         <div className="tips-actions">
-          <button type="button" className="btn btn-dark" onClick={onPickPhoto}>
-            Kies foto
+          <button type="button" className="btn btn-dark" onClick={onTakePhoto}>
+            Maak foto
           </button>
-          <button type="button" className="btn btn-ghost" onClick={onClose}>
-            Annuleren
+          <button type="button" className="btn btn-ghost" onClick={onPickPhoto}>
+            Kies uit galerij
           </button>
         </div>
       </div>

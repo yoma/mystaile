@@ -9,7 +9,8 @@ import { StartView } from './views/StartView'
 import './App.css'
 
 export default function App() {
-  const inputRef = useRef<HTMLInputElement>(null)
+  const cameraInputRef = useRef<HTMLInputElement>(null)
+  const galleryInputRef = useRef<HTMLInputElement>(null)
   const [view, setView] = useState<View>('start')
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [fileName, setFileName] = useState<string | null>(null)
@@ -29,8 +30,12 @@ export default function App() {
 
   const activeLook = looks.find((look) => look.id === activeLookId) ?? null
 
-  function openPicker() {
-    inputRef.current?.click()
+  function openCamera() {
+    cameraInputRef.current?.click()
+  }
+
+  function openGallery() {
+    galleryInputRef.current?.click()
   }
 
   function onFileChange(e: ChangeEvent<HTMLInputElement>) {
@@ -54,7 +59,8 @@ export default function App() {
     setLikedIds([])
     setActiveLookId(null)
     setView('start')
-    if (inputRef.current) inputRef.current.value = ''
+    if (cameraInputRef.current) cameraInputRef.current.value = ''
+    if (galleryInputRef.current) galleryInputRef.current.value = ''
   }
 
   function goLooks() {
@@ -78,20 +84,30 @@ export default function App() {
   return (
     <>
       <input
-        ref={inputRef}
+        ref={cameraInputRef}
+        type="file"
+        accept="image/*"
+        capture="environment"
+        className="sr-only"
+        onChange={onFileChange}
+      />
+      <input
+        ref={galleryInputRef}
         type="file"
         accept="image/*"
         className="sr-only"
         onChange={onFileChange}
       />
 
-      {view === 'start' && <StartView onPickPhoto={openPicker} />}
+      {view === 'start' && (
+        <StartView onTakePhoto={openCamera} onPickPhoto={openGallery} />
+      )}
 
       {view === 'photo' && previewUrl && (
         <PhotoView
           previewUrl={previewUrl}
           fileName={fileName}
-          onChangePhoto={openPicker}
+          onChangePhoto={openGallery}
           onContinue={() => setView('intent')}
           onBack={resetToStart}
         />
