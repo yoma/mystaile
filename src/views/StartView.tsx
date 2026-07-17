@@ -17,7 +17,7 @@ export function StartView({ onStart }: StartViewProps) {
       <div className="hero-content">
         <p className="brand reveal reveal-1">Mystaile</p>
         <h1 className="headline reveal reveal-2">
-          Stylist voor iedereen. Met een knipoog naar de mannen.
+          Voor iedereen. En ja, ook voor hem.
         </h1>
         <p className="lede reveal reveal-3">
           Eén foto. Looks die bij jou passen. Direct door naar de shop.
