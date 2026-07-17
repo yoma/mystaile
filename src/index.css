@@ -1,0 +1,55 @@
+:root {
+  --ink: #14110f;
+  --ink-soft: rgba(20, 17, 15, 0.72);
+  --paper: #f7f4ef;
+  --paper-bright: #fffdf9;
+  --sage: #5f6f5a;
+  --sage-deep: #3e4a3a;
+  --mist: #d8ddd4;
+  --shadow: rgba(20, 17, 15, 0.18);
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
