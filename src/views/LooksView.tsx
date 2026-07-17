@@ -1,4 +1,5 @@
 import { BrandMark } from '../components/BrandMark'
+import { TryOnStage } from '../components/TryOnStage'
 import type { Look } from '../types'
 
 interface LooksViewProps {
@@ -63,13 +64,12 @@ export function LooksView({
       </header>
 
       <button type="button" className="look-stage" onClick={onOpen}>
-        <div className="look-visual">
-          <img className="look-image" src={look.image} alt="" />
-          {userPhoto && (
-            <img className="look-you" src={userPhoto} alt="Jouw foto" />
-          )}
-          <span className="tryon-note">Voorbeeldlook · try-on volgt</span>
-        </div>
+        <TryOnStage
+          className="look-visual"
+          userPhoto={userPhoto}
+          lookImage={look.image}
+          lookAlt=""
+        />
         <div className="look-meta">
           <h2>{look.title}</h2>
           <p>{look.tagline}</p>

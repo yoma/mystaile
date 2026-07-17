@@ -1,4 +1,5 @@
 import { BrandMark } from '../components/BrandMark'
+import { TryOnStage } from '../components/TryOnStage'
 import type { Look } from '../types'
 
 const ROLE_LABEL: Record<string, string> = {
@@ -11,10 +12,11 @@ const ROLE_LABEL: Record<string, string> = {
 
 interface DetailViewProps {
   look: Look
+  userPhoto: string | null
   onBack: () => void
 }
 
-export function DetailView({ look, onBack }: DetailViewProps) {
+export function DetailView({ look, userPhoto, onBack }: DetailViewProps) {
   const total = look.items.reduce((sum, item) => sum + item.price, 0)
 
   return (
@@ -28,7 +30,12 @@ export function DetailView({ look, onBack }: DetailViewProps) {
       </header>
 
       <div className="detail-hero">
-        <img src={look.image} alt="" className="detail-image" />
+        <TryOnStage
+          className="detail-tryon"
+          userPhoto={userPhoto}
+          lookImage={look.image}
+          lookAlt=""
+        />
       </div>
 
       <div className="screen-copy detail-copy">
