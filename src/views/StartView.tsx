@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
+import { PhotoTipsModal } from './PhotoTipsModal'
 
 interface StartViewProps {
-  onStart: () => void
+  onPickPhoto: () => void
 }
 
 const HERO_IMAGES = [
@@ -13,8 +14,9 @@ const HERO_IMAGES = [
 
 const ROTATE_MS = 10_000
 
-export function StartView({ onStart }: StartViewProps) {
+export function StartView({ onPickPhoto }: StartViewProps) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [tipsOpen, setTipsOpen] = useState(false)
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -69,11 +71,22 @@ export function StartView({ onStart }: StartViewProps) {
           Eén foto. Looks die bij jou passen, meteen met een link naar jouw stuk.
         </p>
         <div className="cta-row reveal reveal-4">
-          <button type="button" className="btn btn-primary" onClick={onStart}>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => setTipsOpen(true)}
+          >
             Start met je foto
           </button>
         </div>
       </div>
+
+      {tipsOpen && (
+        <PhotoTipsModal
+          onPickPhoto={onPickPhoto}
+          onClose={() => setTipsOpen(false)}
+        />
+      )}
     </section>
   )
 }

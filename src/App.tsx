@@ -4,7 +4,6 @@ import type { Audience, Budget, Intent, Occasion, View } from './types'
 import { DetailView } from './views/DetailView'
 import { IntentView } from './views/IntentView'
 import { LooksView } from './views/LooksView'
-import { PhotoTipsView } from './views/PhotoTipsView'
 import { PhotoView } from './views/PhotoView'
 import { StartView } from './views/StartView'
 import './App.css'
@@ -86,16 +85,7 @@ export default function App() {
         onChange={onFileChange}
       />
 
-      {view === 'start' && (
-        <StartView onStart={() => setView('photo-tips')} />
-      )}
-
-      {view === 'photo-tips' && (
-        <PhotoTipsView
-          onPickPhoto={openPicker}
-          onBack={() => setView('start')}
-        />
-      )}
+      {view === 'start' && <StartView onPickPhoto={openPicker} />}
 
       {view === 'photo' && previewUrl && (
         <PhotoView
@@ -120,7 +110,7 @@ export default function App() {
             setIntent((prev) => ({ ...prev, budget }))
           }
           onContinue={goLooks}
-          onBack={() => setView(previewUrl ? 'photo' : 'photo-tips')}
+          onBack={() => setView(previewUrl ? 'photo' : 'start')}
         />
       )}
 

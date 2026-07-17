@@ -4,7 +4,6 @@ export type Budget = 'scherp' | 'normaal' | 'ruim'
 
 export type View =
   | 'start'
-  | 'photo-tips'
   | 'photo'
   | 'intent'
   | 'looks'
