@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState, type ChangeEvent } from 'react'
 import { filterLooks } from './data/looks'
 import type { Audience, Budget, Intent, Occasion, View } from './types'
+import { CameraModal } from './views/CameraModal'
 import { DetailView } from './views/DetailView'
 import { IntentView } from './views/IntentView'
 import { LooksView } from './views/LooksView'
@@ -9,9 +10,9 @@ import { StartView } from './views/StartView'
 import './App.css'
 
 export default function App() {
-  const cameraInputRef = useRef<HTMLInputElement>(null)
   const galleryInputRef = useRef<HTMLInputElement>(null)
   const [view, setView] = useState<View>('start')
+  const [cameraOpen, setCameraOpen] = useState(false)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [fileName, setFileName] = useState<string | null>(null)
   const [intent, setIntent] = useState<Intent>({
@@ -31,23 +32,28 @@ export default function App() {
   const activeLook = looks.find((look) => look.id === activeLookId) ?? null
 
   function openCamera() {
-    cameraInputRef.current?.click()
+    setCameraOpen(true)
   }
 
   function openGallery() {
+    setCameraOpen(false)
     galleryInputRef.current?.click()
   }
 
-  function onFileChange(e: ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0]
-    if (!file) return
-
+  function applyPhotoFile(file: File) {
     if (previewUrl) URL.revokeObjectURL(previewUrl)
 
     const url = URL.createObjectURL(file)
     setPreviewUrl(url)
     setFileName(file.name)
+    setCameraOpen(false)
     setView('photo')
+  }
+
+  function onFileChange(e: ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0]
+    if (!file) return
+    applyPhotoFile(file)
   }
 
   function resetToStart() {
@@ -58,8 +64,8 @@ export default function App() {
     setLookIndex(0)
     setLikedIds([])
     setActiveLookId(null)
+    setCameraOpen(false)
     setView('start')
-    if (cameraInputRef.current) cameraInputRef.current.value = ''
     if (galleryInputRef.current) galleryInputRef.current.value = ''
   }
 
@@ -84,14 +90,6 @@ export default function App() {
   return (
     <>
       <input
-        ref={cameraInputRef}
-        type="file"
-        accept="image/*"
-        capture="environment"
-        className="sr-only"
-        onChange={onFileChange}
-      />
-      <input
         ref={galleryInputRef}
         type="file"
         accept="image/*"
@@ -101,6 +99,14 @@ export default function App() {
 
       {view === 'start' && (
         <StartView onTakePhoto={openCamera} onPickPhoto={openGallery} />
+      )}
+
+      {cameraOpen && (
+        <CameraModal
+          onCapture={applyPhotoFile}
+          onPickGallery={openGallery}
+          onClose={() => setCameraOpen(false)}
+        />
       )}
 
       {view === 'photo' && previewUrl && (

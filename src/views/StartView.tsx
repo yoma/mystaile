@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { BrandMark } from '../components/BrandMark'
 import { PhotoTipsModal } from './PhotoTipsModal'
 
 interface StartViewProps {
@@ -50,7 +51,7 @@ export function StartView({ onTakePhoto, onPickPhoto }: StartViewProps) {
   }, [])
 
   return (
-    <section className="hero" aria-label="Mystaile start">
+    <section className="hero" aria-label="mystAIle start">
       <div className="hero-media" aria-hidden="true">
         {HERO_IMAGES.map((src, index) => (
           <img
@@ -64,7 +65,7 @@ export function StartView({ onTakePhoto, onPickPhoto }: StartViewProps) {
       </div>
 
       <div className="hero-content">
-        <p className="brand reveal reveal-1">Mystaile</p>
+        <BrandMark className="reveal reveal-1" />
         <h1 className="headline reveal reveal-2">
           Stylist voor iedereen. En ja, ook voor hem.
         </h1>

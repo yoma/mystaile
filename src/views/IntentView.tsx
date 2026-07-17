@@ -1,3 +1,4 @@
+import { BrandMark } from '../components/BrandMark'
 import type { Audience, Budget, Intent, Occasion } from '../types'
 
 interface IntentViewProps {
@@ -42,7 +43,7 @@ export function IntentView({
         <button type="button" className="text-btn" onClick={onBack}>
           Terug
         </button>
-        <p className="brand brand-compact">Mystaile</p>
+        <BrandMark compact />
         <span className="top-spacer" />
       </header>
 

@@ -1,3 +1,5 @@
+import { BrandMark } from '../components/BrandMark'
+
 interface PhotoViewProps {
   previewUrl: string
   fileName: string | null
@@ -19,7 +21,7 @@ export function PhotoView({
         <button type="button" className="text-btn" onClick={onBack}>
           Terug
         </button>
-        <p className="brand brand-compact">Mystaile</p>
+        <BrandMark compact />
         <button type="button" className="text-btn" onClick={onChangePhoto}>
           Andere
         </button>

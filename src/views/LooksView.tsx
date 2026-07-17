@@ -1,3 +1,4 @@
+import { BrandMark } from '../components/BrandMark'
 import type { Look } from '../types'
 
 interface LooksViewProps {
@@ -31,7 +32,7 @@ export function LooksView({
           <button type="button" className="text-btn" onClick={onBack}>
             Terug
           </button>
-          <p className="brand brand-compact">Mystaile</p>
+          <BrandMark compact />
           <span className="top-spacer" />
         </header>
         <div className="screen-copy centered-copy">
@@ -55,7 +56,7 @@ export function LooksView({
         <button type="button" className="text-btn" onClick={onBack}>
           Terug
         </button>
-        <p className="brand brand-compact">Mystaile</p>
+        <BrandMark compact />
         <p className="progress">
           {index + 1}/{looks.length}
         </p>

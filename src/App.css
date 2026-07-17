@@ -69,6 +69,11 @@
   letter-spacing: -0.03em;
 }
 
+.brand-ai {
+  color: var(--brand-gold);
+  font-style: normal;
+}
+
 .brand-compact {
   font-size: clamp(1.55rem, 3.5vw, 1.9rem);
   margin: 0;
@@ -413,6 +418,77 @@
   }
 }
 
+.camera-overlay {
+  position: fixed;
+  z-index: 40;
+}
+
+.camera-sheet {
+  width: min(100%, 28rem);
+  max-height: min(92svh, 44rem);
+}
+
+.camera-stage {
+  position: relative;
+  margin: 0 0 1.1rem;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 1.05rem;
+  background:
+    linear-gradient(
+      160deg,
+      rgba(20, 17, 15, 0.08) 0%,
+      rgba(95, 111, 90, 0.12) 100%
+    );
+  border: 1px solid rgba(20, 17, 15, 0.08);
+}
+
+.camera-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 280ms ease;
+  background: var(--ink);
+}
+
+.camera-video.is-ready {
+  opacity: 1;
+}
+
+.camera-status,
+.camera-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.camera-fallback p {
+  margin: 0;
+  max-width: 18rem;
+}
+
+.camera-inline-error {
+  margin: -0.35rem 0 0.85rem;
+  color: var(--sage-deep);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.camera-actions .camera-shutter:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
 .choice-block {
   margin-bottom: 1.5rem;
 }
@@ -730,7 +806,8 @@
   .reveal,
   .look-image,
   .tips-overlay,
-  .tips-sheet {
+  .tips-sheet,
+  .camera-video {
     animation: none;
     transition: none;
   }
