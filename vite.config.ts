@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
+// Dev serves at `/`; production/GitHub Pages build keeps `/mystaile/`.
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: '/mystaile/',
-})
+  base: command === 'build' ? '/mystaile/' : '/',
+}))
