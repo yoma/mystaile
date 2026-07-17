@@ -65,7 +65,7 @@ export function StartView({ onTakePhoto, onPickPhoto }: StartViewProps) {
       </div>
 
       <div className="hero-content">
-        <BrandMark className="reveal reveal-1" />
+        <BrandMark className="reveal reveal-1" tone="light" />
         <h1 className="headline reveal reveal-2">
           Stylist voor iedereen. En ja, ook voor hem.
         </h1>

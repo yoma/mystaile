@@ -62,23 +62,25 @@
 
 .brand {
   margin: 0 0 1.1rem;
-  font-family: var(--font-display);
-  font-size: clamp(3.4rem, 10vw, 5.5rem);
-  font-weight: 400;
-  line-height: 0.92;
-  letter-spacing: -0.03em;
+  line-height: 0;
 }
 
-.brand-ai {
-  color: var(--brand-gold);
-  font-style: normal;
+.brand-logo {
+  display: block;
+  width: auto;
+  height: clamp(2.55rem, 7.2vw, 3.85rem);
+  max-width: min(100%, 22rem);
+  object-fit: contain;
+  object-position: left center;
 }
 
 .brand-compact {
-  font-size: clamp(1.55rem, 3.5vw, 1.9rem);
   margin: 0;
-  color: var(--ink);
-  line-height: 1;
+}
+
+.brand-compact .brand-logo {
+  height: clamp(1.25rem, 3vw, 1.55rem);
+  max-width: min(100%, 10.5rem);
 }
 
 .headline {

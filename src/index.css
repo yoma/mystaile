@@ -7,8 +7,11 @@
   --sage-deep: #3e4a3a;
   --mist: #d8ddd4;
   --brand-gold: #b89c72;
+  --brand-gold-light: #d8c49a;
+  --brand-gold-deep: #8f734c;
   --shadow: rgba(20, 17, 15, 0.18);
   --font-display: 'Instrument Serif', Georgia, serif;
+  --font-brand: 'Jost', 'Avenir Next', 'Segoe UI', sans-serif;
   --font-body: 'Manrope', system-ui, sans-serif;
   color: var(--ink);
   font-family: var(--font-body);
