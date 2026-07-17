@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState, type ChangeEvent } from 'react'
 import { filterLooks } from './data/looks'
-import type { Budget, Intent, Occasion, View } from './types'
+import type { Audience, Budget, Intent, Occasion, View } from './types'
 import { DetailView } from './views/DetailView'
 import { IntentView } from './views/IntentView'
 import { LooksView } from './views/LooksView'
@@ -14,6 +14,7 @@ export default function App() {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [fileName, setFileName] = useState<string | null>(null)
   const [intent, setIntent] = useState<Intent>({
+    audience: null,
     occasion: null,
     budget: null,
   })
@@ -22,8 +23,8 @@ export default function App() {
   const [activeLookId, setActiveLookId] = useState<string | null>(null)
 
   const looks = useMemo(() => {
-    if (!intent.occasion || !intent.budget) return []
-    return filterLooks(intent.occasion, intent.budget)
+    if (!intent.audience || !intent.occasion || !intent.budget) return []
+    return filterLooks(intent.audience, intent.occasion, intent.budget)
   }, [intent])
 
   const activeLook = looks.find((look) => look.id === activeLookId) ?? null
@@ -48,7 +49,7 @@ export default function App() {
     if (previewUrl) URL.revokeObjectURL(previewUrl)
     setPreviewUrl(null)
     setFileName(null)
-    setIntent({ occasion: null, budget: null })
+    setIntent({ audience: null, occasion: null, budget: null })
     setLookIndex(0)
     setLikedIds([])
     setActiveLookId(null)
@@ -99,6 +100,9 @@ export default function App() {
       {view === 'intent' && (
         <IntentView
           intent={intent}
+          onAudience={(audience: Audience) =>
+            setIntent((prev) => ({ ...prev, audience }))
+          }
           onOccasion={(occasion: Occasion) =>
             setIntent((prev) => ({ ...prev, occasion }))
           }

@@ -1,3 +1,4 @@
+export type Audience = 'man' | 'vrouw'
 export type Occasion = 'werk' | 'weekend' | 'avond'
 export type Budget = 'scherp' | 'normaal' | 'ruim'
 
@@ -9,6 +10,7 @@ export type View =
   | 'detail'
 
 export interface Intent {
+  audience: Audience | null
   occasion: Occasion | null
   budget: Budget | null
 }
@@ -29,6 +31,7 @@ export interface Look {
   tagline: string
   why: string
   image: string
+  audience: Audience
   occasions: Occasion[]
   budgets: Budget[]
   items: ShopItem[]

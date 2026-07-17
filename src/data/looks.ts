@@ -1,4 +1,4 @@
-import type { Look } from '../types'
+import type { Audience, Look } from '../types'
 
 export const LOOKS: Look[] = [
   {
@@ -7,7 +7,8 @@ export const LOOKS: Look[] = [
     tagline: 'Strak genoeg voor kantoor, niet stijf.',
     why: 'Navy + ecru geeft contrast zonder schreeuwerig te zijn. De straight chino houdt je silhouet lang.',
     image:
-      'https://images.unsplash.com/photo-1617137984095-74ce4b57a79c?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=80',
+    audience: 'man',
     occasions: ['werk', 'weekend'],
     budgets: ['normaal', 'ruim'],
     items: [
@@ -44,9 +45,10 @@ export const LOOKS: Look[] = [
     id: 'weekend-olive',
     title: 'Weekend olive',
     tagline: 'Relaxed, maar je ziet er verzorgd uit.',
-    why: 'Olive overshirt boven een tee is de makkelijkste mannen-upgrade: één laag erbij, meteen styler.',
+    why: 'Olive overshirt boven een tee is de makkelijkste upgrade: één laag erbij, meteen styler.',
     image:
-      'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=900&q=80',
+    audience: 'man',
     occasions: ['weekend'],
     budgets: ['scherp', 'normaal'],
     items: [
@@ -94,7 +96,8 @@ export const LOOKS: Look[] = [
     tagline: 'Donker, simpel, geen gedoe.',
     why: 'All-black werkt altijd ’s avonds. Textuur in het shirt houdt het spannend zonder print of logo.',
     image:
-      'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=900&q=80',
+    audience: 'man',
     occasions: ['avond', 'werk'],
     budgets: ['normaal', 'ruim'],
     items: [
@@ -133,7 +136,8 @@ export const LOOKS: Look[] = [
     tagline: 'Voor als “smart casual” op de uitnodiging staat.',
     why: 'Lichtblauw overhemd + grijze broek is de veiligste route die toch scherp oogt.',
     image:
-      'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80',
+    audience: 'man',
     occasions: ['werk', 'avond'],
     budgets: ['scherp', 'normaal'],
     items: [
@@ -173,6 +177,7 @@ export const LOOKS: Look[] = [
     why: 'Een camel overshirt of light coat tilt een basisoutfit. Neutrale kleuren stapelen makkelijk.',
     image:
       'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=900&q=80',
+    audience: 'man',
     occasions: ['weekend', 'werk'],
     budgets: ['normaal', 'ruim'],
     items: [
@@ -212,6 +217,7 @@ export const LOOKS: Look[] = [
     why: 'Goede pasvorm wint van logo’s. Neutrale tee + donkere jeans + witte sneaker dekt 80% van je week.',
     image:
       'https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?auto=format&fit=crop&w=900&q=80',
+    audience: 'man',
     occasions: ['weekend', 'werk'],
     budgets: ['scherp'],
     items: [
@@ -244,23 +250,177 @@ export const LOOKS: Look[] = [
       },
     ],
   },
+  {
+    id: 'vrouw-soft-tailoring',
+    title: 'Soft tailoring',
+    tagline: 'Zakelijk zonder pantser.',
+    why: 'Een zachte blazer over een tee houdt het luchtig. Rechte broek verlengt je silhouet.',
+    image:
+      'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80',
+    audience: 'vrouw',
+    occasions: ['werk', 'avond'],
+    budgets: ['normaal', 'ruim'],
+    items: [
+      {
+        id: 'v1',
+        name: 'Relaxed blazer',
+        brand: 'Arket',
+        price: 149,
+        shop: 'Arket',
+        url: 'https://www.arket.com/',
+        role: 'layer',
+      },
+      {
+        id: 'v2',
+        name: 'Fine knit tee',
+        brand: 'Cos',
+        price: 59,
+        shop: 'Cos',
+        url: 'https://www.cos.com/',
+        role: 'top',
+      },
+      {
+        id: 'v3',
+        name: 'Straight trouser',
+        brand: 'Massimo Dutti',
+        price: 89,
+        shop: 'Massimo Dutti',
+        url: 'https://www.massimodutti.com/',
+        role: 'bottom',
+      },
+    ],
+  },
+  {
+    id: 'vrouw-weekend-denim',
+    title: 'Weekend denim',
+    tagline: 'Casual, maar bewust gekozen.',
+    why: 'Goede jeans + een clean top + sneaker is genoeg. De pasvorm doet het werk.',
+    image:
+      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80',
+    audience: 'vrouw',
+    occasions: ['weekend'],
+    budgets: ['scherp', 'normaal'],
+    items: [
+      {
+        id: 'v4',
+        name: 'Cotton tee',
+        brand: 'Everlane',
+        price: 28,
+        shop: 'Everlane',
+        url: 'https://www.everlane.com/',
+        role: 'top',
+      },
+      {
+        id: 'v5',
+        name: 'Straight jeans',
+        brand: 'Weekday',
+        price: 59,
+        shop: 'Weekday',
+        url: 'https://www.weekday.com/',
+        role: 'bottom',
+      },
+      {
+        id: 'v6',
+        name: 'Court sneaker',
+        brand: 'Veja',
+        price: 120,
+        shop: 'Veja',
+        url: 'https://www.veja-store.com/',
+        role: 'shoes',
+      },
+    ],
+  },
+  {
+    id: 'vrouw-avond-zwart',
+    title: 'Avond zwart',
+    tagline: 'Eén look, weinig keuzes.',
+    why: 'Zwart met één sterke vorm (jurk of set) voorkomt twijfel. Schoenen maken het af.',
+    image:
+      'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=80',
+    audience: 'vrouw',
+    occasions: ['avond'],
+    budgets: ['normaal', 'ruim'],
+    items: [
+      {
+        id: 'v7',
+        name: 'Column dress',
+        brand: 'Cos',
+        price: 135,
+        shop: 'Cos',
+        url: 'https://www.cos.com/',
+        role: 'top',
+      },
+      {
+        id: 'v8',
+        name: 'Slingback heel',
+        brand: 'Mango',
+        price: 59,
+        shop: 'Mango',
+        url: 'https://shop.mango.com/',
+        role: 'shoes',
+      },
+    ],
+  },
+  {
+    id: 'vrouw-basis-clean',
+    title: 'Clean basis',
+    tagline: 'Dagelijks, zonder nadenken.',
+    why: 'Neutrale lagen stapelen. Begint simpel, oogt verzorgd.',
+    image:
+      'https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=900&q=80',
+    audience: 'vrouw',
+    occasions: ['werk', 'weekend'],
+    budgets: ['scherp', 'normaal'],
+    items: [
+      {
+        id: 'v9',
+        name: 'Oxford shirt',
+        brand: 'Uniqlo',
+        price: 29,
+        shop: 'Uniqlo',
+        url: 'https://www.uniqlo.com/',
+        role: 'top',
+      },
+      {
+        id: 'v10',
+        name: 'Pleated skirt',
+        brand: 'H&M',
+        price: 24,
+        shop: 'H&M',
+        url: 'https://www.hm.com/',
+        role: 'bottom',
+      },
+      {
+        id: 'v11',
+        name: 'Ballet flat',
+        brand: 'Vagabond',
+        price: 99,
+        shop: 'Vagabond',
+        url: 'https://www.vagabond.com/',
+        role: 'shoes',
+      },
+    ],
+  },
 ]
 
 export function filterLooks(
+  audience: Audience,
   occasion: string,
   budget: string,
 ): Look[] {
-  const matched = LOOKS.filter(
+  const pool = LOOKS.filter((look) => look.audience === audience)
+
+  const matched = pool.filter(
     (look) =>
       look.occasions.includes(occasion as Look['occasions'][number]) &&
       look.budgets.includes(budget as Look['budgets'][number]),
   )
 
-  if (matched.length >= 4) return matched
+  if (matched.length >= 3) return matched
 
-  const byOccasion = LOOKS.filter((look) =>
+  const byOccasion = pool.filter((look) =>
     look.occasions.includes(occasion as Look['occasions'][number]),
   )
 
-  return byOccasion.length ? byOccasion : LOOKS
+  return byOccasion.length ? byOccasion : pool
 }
